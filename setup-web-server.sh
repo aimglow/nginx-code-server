@@ -36,7 +36,7 @@ fi
 
 echo "[script] ipv6 setting"
 IP_CONFIG="/etc/sysconfig/network-scripts/ifcfg-eth0"
-sed -i -e '//s/"yes"/"no"/' ifcfg-eth01
+sed -i -e '//s/"yes"/"no"/' ifcfg-eth0
 
 systemctl restart NetworkManager.service
 nmcli con up eth0
