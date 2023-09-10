@@ -35,20 +35,21 @@ if [ "$DOMAIN" == "" ]; then
 fi
 
 echo "[script] ipv6 setting"
+# this script can apply for vps on conoha.jp
 IP_CONFIG="/etc/sysconfig/network-scripts/ifcfg-eth0"
-sed -i -e '//s/"yes"/"no"/' ifcfg-eth0
+# sed -i -e '//s/"yes"/"no"/' ifcfg-eth0
 
-systemctl restart NetworkManager.service
-nmcli con up eth0
+# systemctl restart NetworkManager.service
+# nmcli con up eth0
 
 echo "[script] install nginx"
-
+# todo:
 
 echo "[script] install snap"
-
+# todo:
 
 echo "[script] install certbot"
-
+# todo:
 
 echo "set nginx conf"
 echo "set your domain: $DOMAIN"
