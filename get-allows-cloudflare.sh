@@ -10,9 +10,9 @@ if [ $STA == true ]; then
     IPV6=$(echo $RES | jq -r .result.ipv6_cidrs.[])
     IP="$IPV4 $IPV6"
 
-    echo "deny all;" > allow-address
+    echo "deny all;" > /etc/nginx/allow-address
     for ip in $IP
     do
-    echo "$ip;" >> allow-address
+    echo "$ip;" >> /etc/nginx/allow-address
     done
 fi
