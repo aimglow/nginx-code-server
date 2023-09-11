@@ -17,7 +17,7 @@ if [ $STA == true ]; then
     firewall-cmd --reload
 
     # 新しいIPv4ルール設定
-    IPV4=$(echo $RES | jq -r .result.ipv4_cidrs.[])
+    IPV4=$(echo $RES | jq -r .result.ipv4_cidrs[])
     for ip in $IPV4
     do
         RULE="rule family=ipv4 source address=$ip port port=https protocol=tcp log prefix=cloudflare accept"
@@ -25,7 +25,7 @@ if [ $STA == true ]; then
     done
 
     # 新しいIPv6ルール設定
-    IPV6=$(echo $RES | jq -r .result.ipv6_cidrs.[])
+    IPV6=$(echo $RES | jq -r .result.ipv6_cidrs[])
     for ip in $IPV6
     do
         RULE="rule family=ipv6 source address=$ip port port=https protocol=tcp log prefix=cloudflare accept"
