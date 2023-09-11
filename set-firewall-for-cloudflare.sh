@@ -8,7 +8,7 @@ STA=$(echo $RES | jq .success)
 if [ $STA == true ]; then
 
     # 既存のルール削除
-    EXIST_RULE=$(firewall-cmd --list-all | grep -E 'prefix="cloudflare"' | sed 's/^.*rule/rule/' | sed 's/"//g')
+    EXIST_RULE=$(firewall-cmd --list-all | grep -E 'prefix="cloudflare"' | sed 's/^.*rule/rule/')
     IFS=$'\n'
     for RULE in $EXIST_RULE
     do
